@@ -1,0 +1,12 @@
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+  # Rewrite URLs of the form 'index.php?ak=x':
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule ^(.*)$ exchange.php?q=$1 [L,QSA]  
+  
+</IfModule>
+
+ErrorDocument 500 "<h2>Apache server error</h2> application failed to start properly"
